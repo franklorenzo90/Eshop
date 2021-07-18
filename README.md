@@ -1,5 +1,5 @@
 user: johnd
-pass: (Anything you want to write. It must have more than 9 characters. I know dummy api )
+pass: (Anything you want to write. It must have more than 9 characters. I know ... dummy api )
 
 # Getting Started with Create React App
 
