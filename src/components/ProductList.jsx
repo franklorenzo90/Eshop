@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "./Loading";
+import { url } from "../utils/url";
 
 // My Components
 import Card from "./Card";
@@ -14,9 +15,7 @@ function ProductList() {
   const [isLoading, setIsLoading] = useState(true);
   const { category } = useParams();
   const { buy } = useCart();
-  const productByCat = useFetch(
-    `https://fakestoreapi.com/products/category/${category}`
-  );
+  const productByCat = useFetch(url.productByCategory + category);
 
   const { show, Alert } = FlashMessage();
 
@@ -26,12 +25,12 @@ function ProductList() {
 
   if (isLoading) return <Loading />;
 
-  const renderButton = (p) => {
+  const renderButton = (product) => {
     return (
       <button
         className="btn border-warning link borderless btn-lg"
         onClick={() => {
-          buy(p);
+          buy(product);
           show("Product has been added to your cart");
         }}
       >
@@ -52,13 +51,13 @@ function ProductList() {
         <div className="col-sm-4">{Alert()}</div>
       </div>
       <div className="mt-5">
-        {productByCat.map((p) => (
-          <div className="row mt-5" key={p.id}>
+        {productByCat.map((product) => (
+          <div className="row mt-5" key={product.id}>
             <Card
-              srcImage={p.image}
-              key={p.id}
-              product={p}
-              render={renderButton(p)}
+              srcImage={product.image}
+              key={product.id}
+              product={product}
+              render={renderButton(product)}
             />
           </div>
         ))}
