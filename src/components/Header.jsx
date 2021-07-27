@@ -43,7 +43,12 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-5">
             <li className="nav-item">
-              <NavLink className="link" aria-current="page" to="/cartview">
+              <NavLink
+                className="link"
+                aria-current="page"
+                to="/cartview"
+                activeClassName="link-active"
+              >
                 <i className="far fa-eye me-2"></i>
                 See my cart
               </NavLink>

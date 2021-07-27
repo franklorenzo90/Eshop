@@ -60,3 +60,6 @@
   -webkit-line-clamp: 4;
 }
 
+.link-active {
+  color: #ffc107;
+}
